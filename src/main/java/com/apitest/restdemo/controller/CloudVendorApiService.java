@@ -1,9 +1,7 @@
 package com.apitest.restdemo.controller;
 
 import com.apitest.restdemo.model.CloudVendor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cloudvendor")
@@ -17,5 +15,26 @@ public class CloudVendorApiService {
 
 
     }
+@PostMapping
+public String createCloudVendorDetails(@RequestBody CloudVendor cloudVendor) {
+        this.cloudVendor= cloudVendor;
+        return "Cloud Vendor Created Successfully";
 
 }
+
+@PutMapping
+    public String updateCloudVendorDetails(@RequestBody CloudVendor cloudVendor) {
+        this.cloudVendor= cloudVendor;
+        return "Cloud Vendor Updated Successfully";
+
+    }
+
+
+@DeleteMapping("{vendorId}")
+    public String deleteCloudVendorDetails(String vendorId) {
+        this.cloudVendor= null;
+        return "Cloud Vendor Deleted Successfully";
+
+    }
+}
+
